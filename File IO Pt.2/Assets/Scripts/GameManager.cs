@@ -150,4 +150,6 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(FILE_PATH, highScoreStr);
         
     }
+    
+    
 }

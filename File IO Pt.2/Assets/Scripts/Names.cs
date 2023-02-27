@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Mime;
@@ -11,7 +12,21 @@ public class Names : MonoBehaviour
 
     public TextMeshPro Username;
     public TMP_InputField Username_input;
-    
+
+    public string player_name;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     //public TextMeshPro username;
     
@@ -27,11 +42,15 @@ public class Names : MonoBehaviour
         
     }
 
-    public void setName()
+    /*public void setName()
     {
         //Username.text = Username_input.text;
         Debug.Log(Username_input.text);
-    }
+    }*/
 
+    public void setPlayerName()
+    {
+        player_name = Username_input.text;
+    }
  
 }
